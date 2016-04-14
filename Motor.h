@@ -16,6 +16,13 @@
 #include <xc.h>
 #include <math.h>
 
+#ifndef MOTOR_H_
+#define MOTOR_H_
+
+// Define Motor Enable/Disable Pin
+#define MOTOR_ENABLE_TRIS TRISBbits.TRISB2
+#define MOTOR_ENABLE_LAT  LATBbits.LATB2
+
 // Define Registers for Motor 1, A Input
 #define MOTOR1A_TRIS    TRISDbits.TRISD0
 #define MOTOR1A_ODC     ODCDbits.ODCD0
@@ -65,6 +72,12 @@
 // Initializes the PWM (Defaults to Forward with 0% Duty Cycle)
 void Motor_Init();
 
+// Enables Motor By Turning on the Enable on the H-Bridge
+void Motor_Enable();
+
+// Disables Motor By Turning off the Enable on the H-Bridge
+void Motor_Disable();
+
 // Remaps Motor 1 Connections to Move the Motor Backward
 void Motor_Set1Backward();
 
@@ -82,3 +95,5 @@ void Motor_Set2DutyCycle(float newDutyCycle);
 
 // Remaps Motor 2 Connections to Move the Motor Forward
 void Motor_Set2Forward();
+
+#endif // MOTOR_H_

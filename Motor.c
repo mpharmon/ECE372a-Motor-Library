@@ -48,6 +48,18 @@ void Motor_Init(){
   T2CONbits.ON = 1; // Enable Timer 2
   OC1CONbits.ON = 1; // Enable Output Compare 1
   OC2CONbits.ON = 1; // Enable Output Compare 2
+  // Setup Motor Enable
+  MOTOR_ENABLE_TRIS = TRIS_OUTPUT;
+  // Turn Off Motor
+  Motor_Disable();
+}
+
+void Motor_Enable(){
+  MOTOR_ENABLE_LAT = LAT_ENABLE;
+}
+
+void Motor_Disable(){
+  MOTOR_ENABLE_LAT = LAT_DISABLE;
 }
 
 void Motor_Set1DutyCycle(float newDutyCycle){
