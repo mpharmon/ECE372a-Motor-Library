@@ -19,6 +19,9 @@
 #ifndef MOTOR_H_
 #define MOTOR_H_
 
+//Set Standard Duty Cycle (this will be used to calculate all duty cycle setting)
+#define STANDARD_DUTY_CYCLE 50.0
+
 // Define Motor Enable/Disable Pin
 #define MOTOR_ENABLE_TRIS TRISBbits.TRISB2
 #define MOTOR_ENABLE_LAT  LATBbits.LATB2

@@ -3,9 +3,9 @@
  * 
  *  Group: 209
  *
- *  Lab: 3 Part 2
+ *  Library: Motor
  * 
- *  File: PWM.c
+ *  File: Motor.c
  * 
  *  Member: Michael Harmon (Software)
  *          Abdul Rana (Hardware)
@@ -48,10 +48,14 @@ void Motor_Init(){
   T2CONbits.ON = 1; // Enable Timer 2
   OC1CONbits.ON = 1; // Enable Output Compare 1
   OC2CONbits.ON = 1; // Enable Output Compare 2
+  
   // Setup Motor Enable
   MOTOR_ENABLE_TRIS = TRIS_OUTPUT;
-  // Turn Off Motor
+  
+  // Set Motor Defaults
   Motor_Disable();
+  Motor_Set1Forward();
+  Motor_Set2Forward();
   Motor_Set1DutyCycle(STANDARD_DUTY_CYCLE);
   Motor_Set2DutyCycle(STANDARD_DUTY_CYCLE);
 }
@@ -67,6 +71,8 @@ void Motor_Disable(){
 void Motor_Set1DutyCycle(float newDutyCycle){
   if(newDutyCycle >= 100){
     OC1RS = 10230;
+  }else if(newDutyCycle <= 0){
+    OC1RS = 0;
   }else{
     OC1RS = floor(newDutyCycle * 102.3);
   }
@@ -75,6 +81,8 @@ void Motor_Set1DutyCycle(float newDutyCycle){
 void Motor_Set2DutyCycle(float newDutyCycle){
   if(newDutyCycle >= 100){
     OC2RS = 10230;
+  }else if(newDutyCycle <= 0){
+    OC2RS = 0;
   }else{
     OC2RS = floor(newDutyCycle * 102.3);
   }
