@@ -52,6 +52,8 @@ void Motor_Init(){
   MOTOR_ENABLE_TRIS = TRIS_OUTPUT;
   // Turn Off Motor
   Motor_Disable();
+  Motor_Set1DutyCycle(STANDARD_DUTY_CYCLE);
+  Motor_Set2DutyCycle(STANDARD_DUTY_CYCLE);
 }
 
 void Motor_Enable(){
