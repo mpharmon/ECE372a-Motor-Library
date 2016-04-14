@@ -23,8 +23,8 @@
 #define STANDARD_DUTY_CYCLE 50.0
 
 // Define Motor Enable/Disable Pin
-#define MOTOR_ENABLE_TRIS TRISBbits.TRISB2
-#define MOTOR_ENABLE_LAT  LATBbits.LATB2
+#define MOTOR_ENABLE_TRIS TRISDbits.TRISD6
+#define MOTOR_ENABLE_LAT  LATDbits.LATD6
 
 // Define Registers for Motor 1, A Input
 #define MOTOR1A_TRIS    TRISDbits.TRISD0
@@ -43,23 +43,23 @@
 
 
 // Define Registers for Motor 2, B Input
-#define MOTOR2B_TRIS    TRISDbits.TRISD5
-#define MOTOR2B_ODC     ODCDbits.ODCD5
-#define MOTOR2B_LAT     LATDbits.LATD5
-#define MOTOR2B_RP      RPD5Rbits.RPD5R
+#define MOTOR2B_TRIS    TRISDbits.TRISD3
+#define MOTOR2B_ODC     ODCDbits.ODCD3
+#define MOTOR2B_LAT     LATDbits.LATD3
+#define MOTOR2B_RP      RPD3Rbits.RPD3R
 //#define MOTOR2B_ANSEL 
 
 
 // Define Registers for Motor 1, BInput
-#define MOTOR1B_TRIS    TRISDbits.TRISD8
-#define MOTOR1B_ODC     ODCDbits.ODCD8
-#define MOTOR1B_LAT     LATDbits.LATD8
-#define MOTOR1B_RP      RPD8Rbits.RPD8R
+#define MOTOR1B_TRIS    TRISCbits.TRISC13
+#define MOTOR1B_ODC     ODCCbits.ODCC13
+#define MOTOR1B_LAT     LATCbits.LATC13
+#define MOTOR1B_RP      RPC13Rbits.RPC13R
 //#define MOTOR1B_ANSEL 
 
 // Define OC1/OC2 Peripheral Select
-#define OC1_OUTPUT 0b1100
-#define OC2_OUTPUT 0b1011
+#define OC2_OUTPUT 0b1100
+#define OC4_OUTPUT 0b1011
 
 // Define Tristate Output
 #define TRIS_OUTPUT 0
